@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {IPost} from "../models/IPost";
+import {IPost} from "../interfaces/IPost";
+import {urls} from "../constants/urls/urls";
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,11 @@ export class PostService {
 
   getPosts(): Observable<IPost[]> {
     return this.httpClient
-      .get<IPost[]>("https://jsonplaceholder.typicode.com/posts");
+      .get<IPost[]>(urls.posts);
   }
 
   getPost(id: number): Observable<IPost> {
     return this.httpClient
-      .get<IPost>("https://jsonplaceholder.typicode.com/posts/" + id);
+      .get<IPost>(urls.posts + "/" + id);
   }
 }

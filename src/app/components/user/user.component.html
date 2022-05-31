@@ -1,8 +1,8 @@
 <div class="user">
   <div>
-    {{user.name}}: City - {{user.address.city}}
-  </div>
-  <div>
-    Company name - {{user.company.name}}
+    <div>
+      {{user.name}}
+    </div>
+    <h3><a [routerLink]="['user-details', user.id]">Details</a></h3>
   </div>
 </div>

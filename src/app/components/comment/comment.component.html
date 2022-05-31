@@ -1,8 +1,6 @@
 <div class="comment">
   <div>
-    {{comment.id}}) {{comment.name}}:
-  </div>
-  <div>
-    {{comment.body}}
+    {{comment.name}}
+    <h3><a [routerLink]="['comment-details', comment.id]">Details</a></h3>
   </div>
 </div>
