@@ -1,0 +1,6 @@
+<div class="post">
+  <div>
+    {{post.title}}
+    <h3><a [routerLink]="['post-details', post.id]" [state]="{data: post}">Details</a></h3>
+  </div>
+</div>
