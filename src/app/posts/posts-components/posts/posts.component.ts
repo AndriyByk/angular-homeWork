@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from "../../posts-services/post.service";
 import {IPost} from "../../../interfaces/IPost";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-posts',
@@ -8,10 +9,15 @@ import {IPost} from "../../../interfaces/IPost";
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+
   posts: IPost[];
-  constructor(private postService: PostService) { }
+
+  constructor(private postService: PostService,
+              private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.postService.getAll().subscribe(value => this.posts = value)
+    this.activatedRoute
+      .data
+      .subscribe(({postsData}) => this.posts = postsData);
   }
 }

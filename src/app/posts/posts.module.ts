@@ -7,6 +7,10 @@ import { PostComponent } from './posts-components/post/post.component';
 import {PostService} from "./posts-services/post.service";
 import {HttpClientModule} from "@angular/common/http";
 import { PostDetailsComponent } from './posts-components/post-details/post-details.component';
+import {PostsResolver} from "./posts-services/posts-resolvers/posts.resolver";
+import {PostResolver} from "./posts-services/posts-resolvers/post.resolver";
+import {PostsActivatorGuard} from "./posts-services/posts-guards/posts-activator.guard";
+import {PostActivatorGuard} from "./posts-services/posts-guards/post-activator.guard";
 
 @NgModule({
   declarations: [
@@ -19,6 +23,12 @@ import { PostDetailsComponent } from './posts-components/post-details/post-detai
     PostsRoutingModule,
     HttpClientModule
   ],
-  providers:[PostService]
+  providers:[
+    PostService,
+    PostsResolver,
+    PostResolver,
+    PostsActivatorGuard,
+    PostActivatorGuard
+  ]
 })
 export class PostsModule { }
