@@ -9,9 +9,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MenuComponent } from './components/menu/menu.component';
 import {AppRoutingModule} from "./app-routing.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import { EditingBarComponent } from './components/editing-bar/editing-bar.component';
+import {CarsInterceptor} from "./cars.interceptor";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,11 @@ import { EditingBarComponent } from './components/editing-bar/editing-bar.compon
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    multi: true,
+    useClass: CarsInterceptor
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

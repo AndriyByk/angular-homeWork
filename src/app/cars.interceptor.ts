@@ -34,7 +34,7 @@ export class CarsInterceptor implements HttpInterceptor {
 
 
   addToken(request: HttpRequest<any>, token: string): HttpRequest<any> {
-    console.log(token);
+    console.log( "interceptor..........  " + token);
     return request.clone({
       setHeaders: {Authorisation: `Bearer ${token}`}
     });

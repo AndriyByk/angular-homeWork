@@ -18,7 +18,7 @@ export class AuthorisationService {
   }
 
   login(user: IUser): Observable<IToken> {
-    return this.httpClient.post<IToken>(urls.authorisation, user)
+    return this.httpClient.post<IToken>(urls.auth, user)
   }
 
   setToken(token: IToken): void {
